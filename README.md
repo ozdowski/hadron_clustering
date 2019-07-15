@@ -1,2 +1,4 @@
-# hadron_clustering
-Thesis code on hadronic clustering using a CNN
+# Hadronic Clustering
+
+This project uses a Convolutional Neural Network to achieve hadronic clustering. One of the files places two pions (ro 
+
