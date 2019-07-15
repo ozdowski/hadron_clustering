@@ -537,7 +537,50 @@ for t in range(max_iter):
              var2np(F.sigmoid(pred)), var2np(F.sigmoid(pred_val)),
              var2np(bdy), var2np(bdy_val))
 
+# analyze results
+def plot_segmentations(im1, im2, im3):
+    for idepth in range(depthrange):
+      plt.figure(figsize=(15,5))
+      plt.subplot(131)
+      plt.title("energy idepth="+str(idepth))
+      plt.ylabel("2*(ieta-21)")
+      plt.yticks([0,4,8])
+      plt.xlabel("iphi")
+#2D
+      plt.imshow(im1[idepth], cmap='gray')
+      plt.subplot(132)
+      plt.title("true idepth="+str(idepth))
+      plt.yticks([0,4,8])
+      plt.xlabel("iphi")
+#2D
+      plt.imshow(im2[idepth], cmap='nipy_spectral')
+      plt.subplot(133)
+      plt.title("net idepth="+str(idepth))
+      plt.yticks([0,4,8])
+      plt.xlabel("iphi")
+#2D
+      plt.imshow(im3[idepth], cmap='nipy_spectral')
+      plt.show()
     
+# training 
+z = 45
+img = imgs_trn[z]
+bdy_true = bdys_trn[z]
+seg_true = segs_trn[z]
+bdy_pred = var2np(F.sigmoid(net(np2var(img, cuda=USECUDA)))) > 0.5
+seg_true = randomize_ids(seg_true)
+seg_pred = randomize_ids(connected_components(np.expand_dims(bdy_pred, 0))[0])
+plot_segmentations(img, seg_true, seg_pred)
+
+# validation 
+z = 89
+img = imgs_val[z]
+bdy_true = bdys_val[z]
+seg_true = segs_val[z]
+bdy_pred = var2np(F.sigmoid(net(np2var(img, cuda=USECUDA)))) > 0.5
+seg_true = randomize_ids(seg_true)
+seg_pred = randomize_ids(connected_components(np.expand_dims(bdy_pred, 0))[0])
+plot_segmentations(img, seg_true, seg_pred)  
 
 
 
