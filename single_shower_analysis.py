@@ -301,25 +301,12 @@ for i in range(imgs.shape[0]):
       etaprime = etaprime / totale
       phiprime = phiprime /totale
     if etaprime != 0 and phiprime != 0:
-      maxima.append([i,j,etaprime,phiprime])
+      maxima.append([i,j,round(etaprime),round(phiprime)])
       
             
-            
-            
-roundedmax = []    
-
 avgmax = []
 
-for a in range(len(maxima)):
-  i = maxima[a][0]
-  j = maxima[a][1]
-  k = maxima[a][2]
-  l = maxima[a][3]
-  k = round(k)
-  l = round(l)
-  roundedmax.append([i,j,k,l])
-
 for a in range(400):
-  print("Entry "+str(a)+": "+str(roundedmax[a]))
+  print("Entry "+str(a)+": "+str(maxima[a]))
 
 
