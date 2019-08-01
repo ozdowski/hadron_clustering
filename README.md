@@ -1,6 +1,6 @@
 # Hadronic Clustering
 
-This project uses a Convolutional Neural Network to achieve hadronic clustering. One of the files places two pions (each 50GeV) a set distance apart from each other, while the other produces an analysis on a single pion shower. 
+This project uses a Convolutional Neural Network to achieve hadronic clustering. two\_single\_50GeV\_pions.py places two pions (each 50GeV) a set distance apart. Both the single\_shower\_shower\_analysis.py and the wider\_eta\_pions.py files perform an analysis on a single pion, with the wider\_eta\_pions.py file analyzing a wider range of eta that includes the entire HE.   
 
 ## Get Started
 
@@ -37,4 +37,7 @@ python run.py
 ```
 If the file runs successfully with no errors or outputs, all installations were most likely successfull and setup is complete. 
 
+### Outputs
+
+Run correctly, two\_single\_50GeV\_pions.py should output multiple plots of the shower profiles, as well as plots depicting the values of each cell in ieta and iphi for every depth for a selected event. 
 

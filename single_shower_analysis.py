@@ -69,7 +69,7 @@ def randomize_ids(segs, seed=None, lim=256):
 
     return segs
 
-imgs = tifffile.imread('mdepth.tif').astype(np.float32)
+imgs = tifffile.imread('mdepthpions.tif').astype(np.float32)
 
 #tests 
 print(imgs.shape)
@@ -306,7 +306,7 @@ for i in range(imgs.shape[0]):
             
 avgmax = []
 
-for a in range(400):
+for a in range(100):
   print("Entry "+str(a)+": "+str(maxima[a]))
 
 
